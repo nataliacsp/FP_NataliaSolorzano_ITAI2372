@@ -1,0 +1,7 @@
+speechrecognition
+pyttsx3
+textblob
+transformers
+torch
+wikipedia
+pillow
