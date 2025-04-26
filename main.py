@@ -309,52 +309,52 @@ try:
     #choose_voice()
     current_user = None
 
-    while True:
+    #while True:
         
-        command = listen(timeout=10, phrase_time_limit=10)
+        #command = listen(timeout=10, phrase_time_limit=10)
         
-        if command == "timeout" or command == "Sorry, I didn't catch that.":
-            continue
+        #if command == "timeout" or command == "Sorry, I didn't catch that.":
+           # continue
 
-        print("🧠 You said:", command.lower())
+        #print("🧠 You said:", command.lower())
 
-        if any(wake in command.lower() for wake in WAKE_WORDS):
-            speak("I'm awake, Commander. Who's there? Please state your crew ID.")
-            username_command = listen(timeout=30, phrase_time_limit=30).lower()
+        #if any(wake in command.lower() for wake in WAKE_WORDS):
+            #speak("I'm awake, Commander. Who's there? Please state your crew ID.")
+            #username_command = listen(timeout=30, phrase_time_limit=30).lower()
 
-            if username_command == "sorry, i didn't catch that." or username_command == "timeout":
-                speak("I didn't catch that. Please state your crew ID again.")
-                username_command = listen(timeout=30, phrase_time_limit=30).lower()
+            #if username_command == "sorry, i didn't catch that." or username_command == "timeout":
+                #speak("I didn't catch that. Please state your crew ID again.")
+                #username_command = listen(timeout=30, phrase_time_limit=30).lower()
 
-            speak("Now, please state your access password.")
-            password_command = listen(timeout=30, phrase_time_limit=30).lower()
+            #speak("Now, please state your access password.")
+            #password_command = listen(timeout=30, phrase_time_limit=30).lower()
 
-            if password_command == "sorry, i didn't catch that." or password_command == "timeout":
-                speak("I didn't catch that. Please state your password again.")
-                password_command = listen(timeout=30, phrase_time_limit=30).lower()
+            #if password_command == "sorry, i didn't catch that." or password_command == "timeout":
+                #speak("I didn't catch that. Please state your password again.")
+                #password_command = listen(timeout=30, phrase_time_limit=30).lower()
 
-            print("🗝️ Voice Login Attempt:", username_command, "/", password_command)
+            #print("🗝️ Voice Login Attempt:", username_command, "/", password_command)
 
-            success = False
+            #success = False
 
-            for user, password in VOICE_USERS.items():
-                if user in username_command:
-                    similarity = difflib.SequenceMatcher(None, password, password_command).ratio()
-                    if similarity > 0.6:
-                        speak(f"Welcome aboard, Commander {user.capitalize()}.")
-                        current_user = user
-                        success = True
-                        break
-                    else:
-                        speak("Crew ID recognized. But password mismatch.")
-                        success = False
-                        break
+            #for user, password in VOICE_USERS.items():
+                #if user in username_command:
+                    #similarity = difflib.SequenceMatcher(None, password, password_command).ratio()
+                    #if similarity > 0.6:
+                        #speak(f"Welcome aboard, Commander {user.capitalize()}.")
+                        #current_user = user
+                        #success = True
+                        #break
+                    #else:
+                        #speak("Crew ID recognized. But password mismatch.")
+                        #success = False
+                        #break
 
-            if not success:
-                speak("Voice login failed. Please type your credentials manually.")
-                current_user = login()
+            #if not success:
+                #speak("Voice login failed. Please type your credentials manually.")
+                #current_user = login()
 
-            break
+            #break
 
 
 
